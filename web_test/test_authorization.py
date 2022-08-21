@@ -3,9 +3,9 @@
 # @Time    : 20.08.2022 11:06
 # @My Git  : https://github.com/MaximIvanovQA/Python_test
 
-from application import Application
+from web_client.application import Application
 import pytest
-from user import Standard
+from web_client.model.user import Standard
 
 
 @pytest.fixture
@@ -16,9 +16,8 @@ def app(request):
 
 
 def test_login(app):
-    app.open_home_page()
-    app.login(Standard("standard_user", "secret_sauce"))
-    app.logout()
+    app.session.login(Standard("standard_user", "secret_sauce"))
+    app.session.logout()
 
 
 
