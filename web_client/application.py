@@ -4,10 +4,10 @@
 # @My Git  : https://github.com/MaximIvanovQA/Python_test
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 from web_client.session import Session
+from web_client.inventory import Inventory
 
 
 class Application:
@@ -16,6 +16,7 @@ class Application:
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.driver.implicitly_wait(60)
         self.session = Session(self)
+        self.inventory = Inventory(self)
 
     def open_home_page(self):
         driver = self.driver
